@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guayitaba;
+package javaapplication8;
 
 /**
  *
  * @author Estudiantes
  */
-public class Guayitaba {
+public class JavaApplication8 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Jugar(lanzar(),0);
+       Apuesta(DineroJ1(500),DineroJ2(200),1);
+        //Jugar(lanzar(),0);
     }
 
     public static int lanzar(){
@@ -24,15 +25,41 @@ public class Guayitaba {
     public static void Jugar(int a,int b){
         System.out.println(a+"--->"+b);
         if(a > b){
-            if(a==1 || a==6){
+            if(a==1){
                 System.out.println("Asd");
             }
             Jugar(lanzar(),a);
         }else{
-            System.out.print("Perdiste");
+            System.out.println("Perdiste");
         }
     }
-    public static int Apuesta(){
-        return 0;
+    public static void Apuesta(int a,int b,int c){
+        System.out.println("Turno "+c++);
+        System.out.println("Plata de A "+a+"----"+"Plata de B "+b);
+        if(a>0 && b>0){
+            Jugar(lanzar(),0);
+            Apuesta(DineroJ1(DineroJ1(a-Minima(100))),DineroJ2(DineroJ2(b-Minima(100))),c);
+        }else{
+            if(a==0){
+                 System.out.println("Perdio A");
+            }else{
+                 System.out.println("Perdio B");
+            }
+        }  
+    }
+    public static int Minima(int a){
+        return a;
+    }
+    public static int DineroJ1(int i){
+        return i;
+    }
+    public static int DineroJ2(int i){
+        return i;
+    }
+    public static int Monto(int a){
+        return a;
+    }
+    public static int dado(int d){
+        return d;
     }
 }
