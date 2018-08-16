@@ -1,0 +1,38 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package guayitaba;
+
+/**
+ *
+ * @author Estudiantes
+ */
+public class Guayitaba {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Jugar(lanzar(),0);
+    }
+
+    public static int lanzar(){
+       return (int) ((Math.random()*6)+1);
+    }
+    public static void Jugar(int a,int b){
+        System.out.println(a+"--->"+b);
+        if(a > b){
+            if(a==1 || a==6){
+                System.out.println("Asd");
+            }
+            Jugar(lanzar(),a);
+        }else{
+            System.out.print("Perdiste");
+        }
+    }
+    public static int Apuesta(){
+        return 0;
+    }
+}
