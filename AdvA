@@ -26,7 +26,7 @@ public class Recursividad {
 
             case 1:
                 System.out.println("1");
-                System.out.println("apue " + plataGlobalJ1(  plataInicialJ1() - 100 ));
+                System.out.println("apue " + plataGlobalJ1(  plataInicialJ1() - 100 ));   aca recursividad
                 System.out.println(apuestaMesa(100));
                 
             case 6:
