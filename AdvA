@@ -1,0 +1,57 @@
+public class Recursividad {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        final int sed = (int) (Math.random() * 50) + 1;
+//        System.out.println(sed);
+
+        System.out.println("valor " + plataInicialJ1());
+        //System.out.println("Suma total "+ plataGloballJ1(plataInicialJ1()+300));
+        //plataJ1(pro() + plataJ1(sed));
+//             if(dado(debemos guardar el valor fijo del lanzamiento del dado)==1){
+//                 plataTotalJ1(int plata- valorRnd);
+//             }
+//             if (dado(para manejarlo aca)==6){
+//                plataTotalJ1(int plata+ valor){
+//                 
+//             }
+//        
+//    }
+    
+        int dado = 1;
+        switch (dado) {
+
+            case 1:
+                System.out.println("1");
+                System.out.println("apue " + plataGlobalJ1(  plataInicialJ1() - 100 ));
+                System.out.println(apuestaMesa(100));
+                
+            case 6:
+                System.out.println("6");
+//                plataGlobalJ1(dado)
+                break;
+        }
+    }
+
+    public static int plataGlobalJ1(int plata) {            //aca guardo la plata total del j1 lo que gana y lo que pierde
+        return plata;
+
+    }
+
+    public static int plataInicialJ1() {            //obtengo la plata inicial del J1 me permite manejarla
+        
+        return plataGlobalJ1(500);
+    }
+
+    public static int apuestaMesa(int apos) {
+        return apos;
+    }
+
+    public static int pro() {
+        return (int) (Math.random() * 6) + 1;
+    }
+
+}
