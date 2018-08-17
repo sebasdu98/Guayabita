@@ -1,0 +1,212 @@
+public class Recursividad {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        final int sed = (int) (Math.random() * 50) + 1;
+//        System.out.println(sed);
+//    Jugar(lanzar(),0);
+//        Apuesta(DineroJ1(500), DineroJ2(400), Jugar(lanzar(), 0));
+        Apuesta(DineroJ1(500), DineroJ2(50), 2, 0); //prueba
+    }
+
+    public static int lanzar() {
+        return (int) ((Math.random() * 6) + 1);
+    }
+    static int a = 2;       //Asignaciones de prueba
+    static int b = 3;
+
+    public static int Jugar(int act, int ant) {
+        System.out.println(act + " --" + ant);
+        if (a < b) {
+            a++;
+//            Jugar(lanzar(), act);
+            System.out.println("valor1 " + act);
+            return act;
+        } else {
+            System.out.println("FIN");
+            System.out.println("valor2 " + act);
+            return act;
+        }
+    }
+    static int j1 =2 ;
+    static int control = 0;
+
+    public static void Apuesta(int a, int b, int c, int d) {
+
+        System.out.println("INFO" + " Plata de A " + a + "----" + "Plata de B " + b + "---" + "Mesa $ " + d);
+        System.out.println("dado " + c);
+
+//        while(a>0 && b>0){
+        if (j1 ==1) {
+
+            System.out.println("ENTRA A apuesta//////////J1 " + "valor de c " + c);
+            switch (c) {
+                case 1:
+                    if(DineroJ1(DineroJ1(a-200))>=0){
+                    System.out.println("Pierde j1 " + c);
+                    Apuesta(DineroJ1(DineroJ1(a - Minima(200))), DineroJ2(b), 7, Monto(d + 200));
+                    //                Apuesta(DineroJ1(DineroJ1(a - Minima(100))), DineroJ2(DineroJ2(b - Minima(100))), 2);
+                    //                System.out.println("GLobal lose "+ a);
+                    }else{
+                        System.out.println("J1 no tiene dinero");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Valor de c " + c);
+                    if (c < lanzar()) {
+                        System.out.println("Pierdo mando a 1");
+                        Apuesta(a, b, 1, d);
+                    } else {
+                        System.out.println("gana mando a 5");
+                        Apuesta(a, b, 5, d);
+                    }
+                    break;
+                case 3:
+                    System.out.println("Valor de c " + c);
+                    if (c < lanzar()) {
+                        System.out.println("Pierdo mando a 1");
+
+                        Apuesta(a, b, 1, d);
+                    } else {
+                        System.out.println("gana mando a 5");
+
+                        Apuesta(a, b, 5, d);
+                    }
+                    break;
+                case 4:
+                    System.out.println("Valor de c " + c);
+                    if (c < lanzar()) {
+                        System.out.println("Pierdo mando a 1");
+
+                        Apuesta(a, b, 1, d);
+                    } else {
+                        System.out.println("gana mando a 5");
+
+                        Apuesta(a, b, 5, d);
+                    }
+                    break;
+                case 5:
+                    System.out.println("Gana j1 " + c);
+                    if (Monto(d - 300) > 0) {
+                        Apuesta(DineroJ1(DineroJ1(a + Maz(300))), DineroJ2(b), 7, Monto(d - 300));
+                    } else {
+                        System.out.println("NO gana nada ");
+                        Apuesta(a, b, lanzar(), Monto(d));
+                    }
+                    break;
+                case 6:
+                    if(DineroJ1(DineroJ1(a-200))>=0){
+                    System.out.println("Pierde j1 " + c);
+                    Apuesta(DineroJ1(DineroJ1(a - Minima(200))), DineroJ2(b), 7, Monto(d + 200));
+                    //                Apuesta(DineroJ1(DineroJ1(a - Minima(100))), DineroJ2(DineroJ2(b - Minima(100))), 2);
+                    //                System.out.println("GLobal lose "+ a);
+                    }else{
+                        System.out.println("J1 no tiene dinero");
+                    }
+                    break;
+                case 7:
+                    System.out.println("J1 LANZARA DADO DE NUEVO//////");
+
+                    System.out.println("Global j1 " + a + " global j2 " + b + " mesa " + d);
+//                                c = 1;    //OJO CORRJIR
+                    j1++;
+                    Apuesta(a, b, lanzar(), Monto(d));
+                    break;
+
+            }
+//            j1++;
+        }
+        //evito que vuelva a entrar a mov de J1
+        if (j1< 4) {
+            System.out.println("ENTRA A apuesta//////////j2 " + "valor de c " + c);
+            switch (c) {
+                case 1:
+                    System.out.println("Pierde j2");
+                    if(DineroJ2(DineroJ2(b-100))>=0){
+                    Apuesta(DineroJ1(DineroJ1(a)), DineroJ2(DineroJ2(b - Minima(100))), 7, Monto(d+100));
+                    //                System.out.println("GLobal lose "+ a);
+                    }else{
+                        System.out.println("EL J2 no tiene plata");
+                    }
+                    break;
+                case 2:
+                    if (c < lanzar()) {
+                        Apuesta(a, b, 1,d);
+                    } else {
+                        Apuesta(a, b, 5,d);
+                    }
+                    break;
+                case 3:
+                    if (c < lanzar()) {
+                        Apuesta(a, b, 1,d);
+                    } else {
+                        Apuesta(a, b, 5,d);
+                    }
+                    break;
+                case 4:
+                    if (c < lanzar()) {
+                        Apuesta(a, b, 1,d);
+                    } else {
+                        Apuesta(a, b, 5,d);
+                    }
+                    break;
+                case 5:
+                    System.out.println("Gana j2");
+                    if(Monto(d-200)>0){
+                    Apuesta(DineroJ1(DineroJ1(a)), DineroJ2(DineroJ2(b + Maz(200))), 7, Monto(d-200));
+                    }else{
+                        System.out.println("NO gana nada ");
+                        Apuesta(a, b, lanzar(), Monto(d));
+                    }
+                    break;
+                case 6:
+                    if(DineroJ2(DineroJ2(b-100))>=0){
+                    System.out.println("Pierde J2 " + c);
+                    Apuesta(DineroJ1(DineroJ1(a)), DineroJ2(DineroJ2(b - Minima(100))), 7, Monto(d+100));
+                    //                Apuesta(DineroJ1(DineroJ1(a - Minima(100))), DineroJ2(DineroJ2(b - Minima(100))), 2);
+                    //                System.out.println("GLobal lose "+ a);
+                    }else{
+                        System.out.println("J2 no tiene dinero");
+                    }
+                    break;
+                case 7:
+
+                    System.out.println("J2 LANZARA DADO DE NUEVO//////");
+
+                    System.out.println("Global j1 " + a + " global j2 " + b + " mesa " + d);
+//                                c = 1;    //OJO CORRJIR
+                    j1++;
+                    Apuesta(a, b, lanzar(), Monto(d));
+                    break;
+
+            }
+//            j1--;
+        }
+    }            
+          
+    
+
+    public static int Minima(int min) {
+        return min;
+    }
+
+    public static int Monto(int mon) {
+        return mon;
+    }
+
+    public static int Maz(int man) {
+        return man;
+    }
+
+    public static int DineroJ1(int i) {
+        return i;
+    }
+
+    public static int DineroJ2(int i) {
+        return i;
+    }
+
+    //System.out.println("Suma total "+
