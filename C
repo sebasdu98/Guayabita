@@ -1,0 +1,54 @@
+public static void main(String[] args) {
+        // TODO code application logic here
+        final int sed = (int) (Math.random() * 50) + 1;
+//        System.out.println(sed);
+//    Jugar(lanzar(),0);
+        Apuesta(DineroJ1(500), DineroJ2(400),Jugar(lanzar(), 0));
+            
+    }
+    public static int lanzar(){
+       return (int) ((Math.random()*6)+1);
+    }
+    static int a=2;
+    static int b=3;
+    public static int Jugar(int act, int ant){
+        System.out.println(act +" --" + ant );
+        if(a<b){
+            a++;
+//            Jugar(lanzar(), act);
+            System.out.println("valor1 " + act);
+            return act;
+        }else{
+            System.out.println("FIN");
+                        System.out.println("valor2 " + act);
+        return act;
+        }
+    }
+    
+    public static void Apuesta(int a,int b,int c){
+        System.out.println("Turno "+c);
+        System.out.println("Plata de A "+a+"----"+"Plata de B "+b);
+        
+        
+        if(a>0 && b>0){
+            //Jugar(lanzar(),0);
+            //Apuesta(DineroJ1(DineroJ1(a-Minima(100))),DineroJ2(DineroJ2(b-Minima(100))));
+        }else{
+            if(a==0){
+                 System.out.println("Perdio A");
+            }else{
+                 System.out.println("Perdio B");
+            }
+        }  
+        
+    }
+    
+    public static int Minima(int a){
+        return a;
+    }
+    public static int DineroJ1(int i){
+        return i;
+    }
+    public static int DineroJ2(int i){
+        return i;
+    }
