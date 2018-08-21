@@ -8,3 +8,4 @@ int c = Refiere el numero del turno
 int d = Refiere al dinero apostado que esta en juego, es decir el dinero que está sobre la mesa
 De acuerdo al valor de c, se decide si juega el jugador uno o el jugador dos.
 
+Mirar en branch llamado Alex.
